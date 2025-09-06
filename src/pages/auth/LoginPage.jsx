@@ -24,8 +24,10 @@ const LoginPage = () => {
 
       const data = await response.json();
       localStorage.setItem('token', data.token);
+      localStorage.setItem('userId', data.user.id);
+    
       setSuccess('Login successful!');
-      window.location.href = '/home'; // or use navigate('/home')
+      window.location.href = '/home';
     } catch (err) {
       setError(err.message);
     }
